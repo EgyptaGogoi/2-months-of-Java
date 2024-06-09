@@ -1,0 +1,3 @@
+---java commands----
+javac- compile kore .java to .class (bytecode) run by JVM
+java- run .class (class loader, jvm memory, execution engine)
