@@ -1,20 +1,3 @@
-JDK = JRE + development tool
-
- _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-|                                                   |
-|  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _                    |
-| |   _ _ _ _ _ _ _ _      JRE  |                   |
-| |  |               |          |                   |
-| |  |               |          |                   |
-| |  |      JVM      | + Library| + development tool|
-| |  |               |  classes |                   |
-| |  |               |          |                   |
-| |  |_ _ _ _ _ _ _ _|          |                   |
-| |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _|                   |
-|                                                   |
-|                            JDK                    |
-|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|  
-
 ---java commands----
 javac- compile kore .java to .class (bytecode) run by JVM
 java- run .class (class loader, jvm memory, execution engine)
