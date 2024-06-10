@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 JDK = JRE + development tool
 
  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -15,8 +14,6 @@ JDK = JRE + development tool
 |                                                   |
 |                            JDK                    |
 |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|  
-=======
 ---java commands----
 javac- compile kore .java to .class (bytecode) run by JVM
 java- run .class (class loader, jvm memory, execution engine)
->>>>>>> 341e7a6 (java commands)
