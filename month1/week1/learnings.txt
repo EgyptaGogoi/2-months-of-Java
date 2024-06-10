@@ -1,5 +1,166 @@
+JDK = JRE + Compiler + Interpreter + Debuger + development tool
+
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+|                                                   |
+|  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _                    |
+| |   _ _ _ _ _ _ _ _      JRE  |                   |
+| |  |               |          |                   |
+| |  |               |          |                   |
+| |  |      JVM      | + Library| + development tool|
+| |  |               |  classes |                   |
+| |  |               |          |                   |
+| |  |_ _ _ _ _ _ _ _|          |                   |
+| |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _|                   |
+|                                                   |
+|                            JDK                    |
+|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|  
+
+
+
+/***********************************************************************************************************************************************************************/
+
 ---java commands----
 javac- compile kore .java to .class (bytecode) run by JVM
 java- run .class (class loader, jvm memory, execution engine)
 jar - to bundle up .class files in a zip file
 (baki commands khini use korile bujim)
+
+/***********************************************************************************************************************************************************************/
+
+---- JVM ----
+- acts as a run-time engine
+- calls the main method present in the Java acode
+- enables Java to be WORA (Write Once Run Anywhere), i-e plateform independent
+
+---- JVM Architecture Working ----
+
+    Three main components:
+    -- Class Loader:        Loading, Linking, Initialization
+    -- Run time Data Area:  method area, heap memory, stack memory, PC registers, JNI
+    -- Execution engine:    Interpreter, JIT(Just in Time) compile, Gurbage collector, JNI(Java native Interface)
+
+
+
+
+    .java file ---> complied by the compiler and creates .class files--->  class loader lodes this .class files to the memory(class loader loades and Runtime Data Area provides explaination of how the memory is being allocated before it is executed) ---> Execution Engine Executes it.
+
+
+
+    // Class Loaders
+
+        main tasks
+        -Loading
+        -Linking
+        -Initialization
+
+                // types of class loaders (Loading)
+                -Bootstrap class loader     - loades class files from RT.jar(runtime.jar) -> memory
+                                            - system class under java.lang package available within runtime jar resides in jre/lib folder
+                                            _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                                        |                                                   |    
+                                        |    jre\lib                                        |
+                                        |    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _      |
+                                        |   |                                         |     |
+                                        |   |   runtime.jar                           |     |
+                                        |   |                                         |     |
+                                        |   |    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _    |     |
+                                        |   |   |    java.lang                    |   |     |
+                                        |   |   |       _ _ _ _ _ _ _ _ _ _       |   |     |
+                                        |   |   |      |                   |      |   |     |
+                                        |   |   |      | system class      |      |   |     |
+                                        |   |   |      | _ _ _ _ _ _ _ _ _ |      |   |     |
+                                        |   |   |                                 |   |     |
+                                        |   |   |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|   |     |
+                                        |   |                                         |     |
+                                        |   |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|     |
+                                        |                                                   |   
+                                        |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _| 
+
+
+                -Extention class loader     - child of bootstrap class loader
+                                            - loades classes present in the extention directory jre/lib/ext or any other java.ext.dir
+                                            - example OJDBC.jar to connect to oracle databases
+
+                -Application class loader   - loads the .class file that gets created when we compile our java code into the memory 
+
+                // Linking Phase
+                - verify - prepare - resolve
+
+                - verify        - checks the correctness of the code (wheather the file is properly formatted and generated by a valid compiler or not)
+                - prepare       - memory is allocated -> for static variable
+                                - default values are assigned
+                - resolve       - symbolic refrences are replaced by actual refrences(actual memory adress)
+
+                // Initialization
+                - all static variables are assigned with the values defined in the code
+                - static blocks(if any)
+                - execute top-to-bottom OR child-to-parent
+
+    // Runtime Data area/ Memory area
+
+
+
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+            |    JVM Memory                                                                                     |
+            |     _ _ _ _ _ _ _    _ _ _ _ _ _ _      _ _ _ _ _ _ _        _ _ _ _ _ _ _    _ _ _ _ _ _ _       |
+            |    |             |  |             |    |             |      |             |  |             |      |     
+            |    | Method      |  | Heap        |    | JVM Language|      | PC          |  | Native      |      |     
+            |    | Area        |  |_ _ _ _ _ _ _|    | Stacks      |      | Registers   |  | Method      |      |     
+            |    |_ _ _ _ _ _ _|                     |_ _ _ _ _ _ _|      |_ _ _ _ _ _ _|  | Stack       |      |
+            |                                                                              |_ _ _ _ _ _ _|      |
+            |     ____________    ______________    __________________     ______________   ______________      | 
+            |    |class lv    |  |              |  |                  |   |              | |              |     |
+            |    |data        |  | Objects and  |  | contains 3 sec   |   | Holds current| |   Holds      |     |
+            |    |are stored  |  | instance     |  | of memory area   |   |   executing  | |   Native     |     |
+            |    |            |  | variable     |  |                  |   |  instruction | |   method     |     |
+            |    |example     |  |              |  | > Local variable |   |              | |  information |     |
+            |    |class lv    |  |              |  | > Operand Stack  |   |              | |              |     |
+            |    |static      |  |              |  | > Frame Data     |   |              | |              |     |
+            |    |variables   |  |              |  | (described below)|   |              | |              |     |
+            |    |____________|  |______________|  |__________________|   |______________| |______________|     |
+            |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+            
+            
+            JVM stack memory
+            > Local Variable      - stores all local variables used within a module
+            > Operand stack       - contain all the operand used within a method
+            > frame data          - it contains any catch block information incase any exception occurs within the method
+            
+            Native Method information
+            
+            //NOTES:
+                -Every thread has its own PC registers and Native memory stack 
+                -After a thread terminates run-time stack will be destroyed
+
+
+    // JVM Execution Engine
+            - converts the bytecode into machine code -> and executes the instruction
+            -it contains:
+                    -- Interpreter
+                    -- JIT(Just In Time) compiler
+                    -- Gurbage collector
+                    -- Java Native method Interface
+            // Interpreter
+                -- Reads the bytecode and executes one by one
+                --- {PROBLEM-}: WHEN A METHOD IS CALLED MULTIPLE TIMES IT INTERPRETES THOSE LINE OF CODE AGAIN AND AGAIN
+            // JIT(Just In Time) Compiler
+                -- compiles the entire bytecode and changes it to native code
+                -- Used to increase the efficiency of an interpreter by providing (direct native code) for repeated method calls (solves the problem of the interpreter)
+
+                // components that helps to achive this feature:
+                    -- Intermediate code generator
+                    -- Code Optimizer
+                    -- Target code generator
+                    -- Profiler - resposible for finding hotspots method which are called repeatedly.
+
+            // Gurbage collector
+                -- Responsible for destroying the objects that are no longer used.
+
+            // Java Native method interface
+                -- Interact with native libraries and makes it available for the JVM execution engine
+
+/***********************************************************************************************************************************************************************/
+
+--- JRE ---
+
+JRE = Object of JVM + Development Tools + Librrary classes
