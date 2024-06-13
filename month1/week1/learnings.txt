@@ -164,3 +164,51 @@ jar - to bundle up .class files in a zip file
 --- JRE ---
 
 JRE = Object of JVM + Development Tools + Librrary classes
+
+/*************************************************************************************************/
+
+------Input & Output in Java----
+
+    Input- System.in
+        using Scanner class : 
+            Scanner scan = new Scanner(System.in);
+            int a = scan.nextInt(); -integer input
+            string b = scan.next(); -1 string input
+            string c = scan.nextLine(); - line input
+            [Use scan.nextLine() to consume the newline character left in the buffer before this, After using methods like nextInt(), if you want to read the next line .] 
+        using bufferreader :(Pisotke sailobi)
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+    Output formatting-
+       
+        1. String.format()-
+            String formattedString = String.format("a: %d, b: %.2f", a, b);
+
+        2. System.out.printf()- same as above but no need extra initialization
+            System.out.printf("a: %d, b: %.2f%n", a, b);
+
+            [`printf` is short for "print formatted."]
+
+
+     ### Common Format Specifiers ###
+
+        - `%d`: Decimal integer
+        - `%f`: Floating-point number
+        - `%s`: String
+        - `%c`: Character
+        - `%b`: Boolean
+        - `%x`: Hexadecimal integer
+        - `%e`: Scientific notation
+
+    ### Width and Precision ###
+    Right alignment :This will right-align the number within a field of 10 characters
+         double number = 123.456789;
+        System.out.printf("%10.2f%n", number);
+
+        Output - _ _ _ _ _ 123.45
+
+    Left Alignment :To left-align text, use a minus sign (`-`) before the width specifier
+
+        System.out.printf("%-10.2f%n", number);
+
+        Output - 123.45_ _ _ _ _
