@@ -165,7 +165,7 @@ jar - to bundle up .class files in a zip file
 
 JRE = Object of JVM + Development Tools + Librrary classes
 
-/*************************************************************************************************/
+/**********************************************************************************************************************************************************************************/
 
 ------Input & Output in Java----
 
@@ -175,7 +175,8 @@ JRE = Object of JVM + Development Tools + Librrary classes
             int a = scan.nextInt(); -integer input
             string b = scan.next(); -1 string input
             string c = scan.nextLine(); - line input
-            [Use scan.nextLine() to consume the newline character left in the buffer before this, After using methods like nextInt(), if you want to read the next line .] 
+            [Use scan.nextLine() to consume the newline character left in the buffer before this,
+             After using methods like nextInt(), if you want to read the next line .] 
         using bufferreader :(Pisotke sailobi)
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -212,3 +213,16 @@ JRE = Object of JVM + Development Tools + Librrary classes
         System.out.printf("%-10.2f%n", number);
 
         Output - 123.45_ _ _ _ _
+
+/------------------------------------------------------------------------------------------------------------------------------------------------------------------/
+
+*if, if-else, else if, nested if, nested if-else, switch case 
+---prior knowlegde, syntax same as cpp, also studied from gfg---
+
+*jump statements (break, continue, return)
+    #break - break the loop, case, scope {}
+    #coninue - continue from the loop, rest of the statement in the loop is not executed
+    #return - exit the method and return the control to the method-caller statement 
+
+    ----studied from gfg----
+    
