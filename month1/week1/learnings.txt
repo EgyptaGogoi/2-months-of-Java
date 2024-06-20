@@ -225,4 +225,32 @@ JRE = Object of JVM + Development Tools + Librrary classes
     #return - exit the method and return the control to the method-caller statement 
 
     ----studied from gfg----
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  //Zeller's congruence to calculate the day of the week
+  
+    //     a= (int)Math.floor((13*(m+1))/5);
+    //     b= (int) Math.floor(k/4);
+    //     c= (int) Math.floor(j/4);
+    //     h=(day+ a + K + b + c - 2*J)% 7;
+
+where:
+
+h is the day of the week (0 = Saturday, 1 = Sunday, 2 = Monday, ..., 6 = Friday).
+q is the day of the month.
+m is the month (3 = March, 4 = April, ..., 12 = December). January and February are treated as months 13 and 14 of the previous year.
+K is the year of the century (i.e., year mod 100).
+J is the zero-based century (i.e., year / 100).
+
+//Better method
+        to use date.getDayOfWeek() [inbuilt function but u need extra type variables]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+***Number format-          (frf = variable name)
+         final NumberFormat frf= NumberFormat.getCurrencyInstance(Locale.FRANCE);
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    ****Loops-[for repeating statements, same as C/C++]
+        1)For 
+        2)While 
+        3)Do-While
     

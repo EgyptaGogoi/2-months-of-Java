@@ -33,13 +33,35 @@ public class pattern{
             for(int b=1; b<=a; b++)
                 System.out.print(a);
             System.out.println();
-        }    
+        }   
     }
+    public static void display(char p)
+    {
+        for(int a=5; a>=1; a--)
+        {
+            for(int b=a; b>=1; b--)
+                System.out.print(p);
+            System.out.println();
+        }   
+    } 
+    public static void display(int p)
+    {
+        for(int a=p; a>=1; a--)
+        {
+            for(int b=1; b<=a; b++)
+                System.out.print(b);
+            System.out.println();
+        }   
+    }
+    
     public static void main(String args[]){
         display(1,5,1,5,'*');
         int x=1;
         display(x,5,1,'*');
         display(x,5,1);
         display(x,5);
+        display('*');
+        display(5);
+
     }
 }
