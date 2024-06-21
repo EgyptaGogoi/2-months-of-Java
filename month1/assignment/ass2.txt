@@ -1,0 +1,158 @@
+
+
+**Problem: Create Your Own Collection Framework in Java**
+
+You have learned the core concepts of Object-Oriented Programming (OOP) in Java. Now, your task is to create a simple collection framework from scratch without using the built-in Java collection library. Your custom collection framework should include the following features:
+
+### Core Concepts to Apply:
+1. **Encapsulation**: Use private fields and provide public methods to access and modify them.
+2. **Inheritance**: Create a hierarchy of classes for different types of collections.
+3. **Polymorphism**: Use method overriding to handle different behaviors for different collection types.
+4. **Abstraction**: Use abstract classes and methods where appropriate.
+5. **Composition**: Show how one class can be composed of multiple other classes.
+6. **Interfaces**: Define and implement interfaces for common behaviors.
+
+### Framework Requirements:
+
+1. **CustomCollection Interface**:
+   - Define an interface named `CustomCollection` with the following methods:
+     ```java
+     public interface CustomCollection<E> {
+         void add(E element);
+         E remove(int index);
+         E get(int index);
+         int size();
+         boolean isEmpty();
+     }
+     ```
+
+2. **ArrayList Implementation**:
+   - Create a class named `CustomArrayList` that implements `CustomCollection`.
+   - Use an array to store elements.
+   - Implement the methods defined in the `CustomCollection` interface.
+   - Ensure the array can dynamically resize as elements are added.
+
+3. **LinkedList Implementation**:
+   - Create a class named `CustomLinkedList` that implements `CustomCollection`.
+   - Use a linked list structure (nodes with pointers) to store elements.
+   - Implement the methods defined in the `CustomCollection` interface.
+
+4. **Node Class** (for LinkedList):
+   - Define a `Node` class to represent each element in the linked list.
+   - The `Node` class should have fields for storing the element and a reference to the next node.
+
+5. **CustomIterator Interface**:
+   - Define an interface named `CustomIterator` with the following methods:
+     ```java
+     public interface CustomIterator<E> {
+         boolean hasNext();
+         E next();
+     }
+     ```
+
+6. **Iterator Implementations**:
+   - Implement the `CustomIterator` interface for both `CustomArrayList` and `CustomLinkedList`.
+   - Ensure the iterator can traverse through the elements of the collection.
+
+### Detailed Requirements:
+
+1. **CustomArrayList**:
+   - Fields: `E[] elements`, `int size`.
+   - Methods:
+     - `add(E element)`: Adds an element to the list, resizing the array if necessary.
+     - `remove(int index)`: Removes the element at the specified index.
+     - `get(int index)`: Returns the element at the specified index.
+     - `size()`: Returns the number of elements in the list.
+     - `isEmpty()`: Returns `true` if the list is empty, `false` otherwise.
+
+2. **CustomLinkedList**:
+   - Fields: `Node<E> head`, `int size`.
+   - Methods:
+     - `add(E element)`: Adds an element to the end of the list.
+     - `remove(int index)`: Removes the element at the specified index.
+     - `get(int index)`: Returns the element at the specified index.
+     - `size()`: Returns the number of elements in the list.
+     - `isEmpty()`: Returns `true` if the list is empty, `false` otherwise.
+
+3. **Node Class**:
+   - Fields: `E element`, `Node<E> next`.
+   - Methods: Getters and setters for the fields.
+
+4. **CustomArrayListIterator**:
+   - Fields: `CustomArrayList<E> list`, `int currentIndex`.
+   - Methods:
+     - `hasNext()`: Returns `true` if there are more elements, `false` otherwise.
+     - `next()`: Returns the next element in the list.
+
+5. **CustomLinkedListIterator**:
+   - Fields: `Node<E> currentNode`.
+   - Methods:
+     - `hasNext()`: Returns `true` if there are more elements, `false` otherwise.
+     - `next()`: Returns the next element in the list.
+
+### Example Usage:
+
+1. Create instances of `CustomArrayList` and `CustomLinkedList`.
+2. Add elements to both collections.
+3. Use iterators to traverse the elements.
+4. Demonstrate the `add`, `remove`, `get`, `size`, and `isEmpty` methods.
+
+### Sample Code Structure:
+
+```java
+public interface CustomCollection<E> {
+    void add(E element);
+    E remove(int index);
+    E get(int index);
+    int size();
+    boolean isEmpty();
+}
+
+public class CustomArrayList<E> implements CustomCollection<E> {
+    private E[] elements;
+    private int size;
+
+    // Implement methods
+}
+
+public class CustomLinkedList<E> implements CustomCollection<E> {
+    private Node<E> head;
+    private int size;
+
+    // Implement methods
+}
+
+public class Node<E> {
+    private E element;
+    private Node<E> next;
+
+    // Implement getters and setters
+}
+
+public interface CustomIterator<E> {
+    boolean hasNext();
+    E next();
+}
+
+public class CustomArrayListIterator<E> implements CustomIterator<E> {
+    private CustomArrayList<E> list;
+    private int currentIndex;
+
+    // Implement methods
+}
+
+public class CustomLinkedListIterator<E> implements CustomIterator<E> {
+    private Node<E> currentNode;
+
+    // Implement methods
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CustomCollection<String> arrayList = new CustomArrayList<>();
+        CustomCollection<String> linkedList = new CustomLinkedList<>();
+
+        // Add elements and perform operations
+    }
+}
+```
