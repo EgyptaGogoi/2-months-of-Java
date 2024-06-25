@@ -253,4 +253,28 @@ J is the zero-based century (i.e., year / 100).
         1)For 
         2)While 
         3)Do-While
-    
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+*************STRINGS**************
+
+'String' not string.
+-To create string:  using literals "" / using 'new' keyword
+-whenever a String Object is created as a literal, the object will be created 
+in the String constant pool. This allows JVM to optimize the initialization of 
+String literal.
+
+Example: 
+
+String demoString = "hello";
+-The string can also be declared using a new operator i.e. dynamically allocated. 
+In case of String are dynamically allocated they are assigned a new memory location
+ in the heap. This string will not be added to the String constant pool.
+
+Example: 
+
+String demoString = new String("hello");
+-Strings are immutable,i.e., cannot be change. when we concat we get a new object.
+-has a lot of functions like length()/,charAt()/substring()/concat()/toLowerCase()/compareTo()/equals(),etc
+-has stringbuilder,stringbuffer,stringtokenizer class 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------

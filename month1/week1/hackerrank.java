@@ -107,63 +107,66 @@ public class hackerrank{
 
  /********************************************************************************************************************************** */
                           //TO CONVERT FROM INT TO STRING// 
-//    Scanner in = new Scanner(System.in);
-//    int n = in .nextInt();
-//    in.close();
-//    //String s=???; Complete this line below
-//    String s = "";
-//    int a=n,b=10;
-//    if(a==100)
-//         s=s.concat("100");
-//     else if(a==-100)
-//         s=s.concat("-100");
-//     else{
-//         if(a<0){   
-//             s=s.concat("-"); 
-//             a*=-1;
-//         } 
+ /*  Scanner in = new Scanner(System.in);
+   int n = in .nextInt();
+   in.close();
+   //String s=???; Complete this line below
+   String s = "";
+   int a=n,b=10;
+   if(a==100)
+        s=s.concat("100");
+    else if(a==-100)
+        s=s.concat("-100");
+    else{
+        if(a<0){   
+            s=s.concat("-"); 
+            a*=-1;
+        } 
         
-//             while(a>0)
-//             {
-//                 if(a<10)
-//                     b=1;
-//             int dig=a/b;
-//             switch(dig){
-//                 case 1: s=s.concat("1");
-//                             break;
-//                 case 2: s=s.concat("2");
-//                             break;
-//                 case 3: s=s.concat("3");
-//                             break;
-//                 case 4: s=s.concat("4");
-//                             break;
-//                 case 5: s=s.concat("5");
-//                             break;
-//                 case 6: s=s.concat("6");
-//                             break;    
-//                 case 7: s=s.concat("7");
-//                             break;
-//                 case 8: s=s.concat("8");
-//                             break;
-//                 case 9: s=s.concat("9");
-//                             break;
-//                     default : s=s.concat("0");
-//                 }    
-//                 a=a%b;
+            while(a>0)
+            {
+                if(a<10)
+                    b=1;
+            int dig=a/b;
+            switch(dig){
+                case 1: s=s.concat("1");
+                            break;
+                case 2: s=s.concat("2");
+                            break;
+                case 3: s=s.concat("3");
+                            break;
+                case 4: s=s.concat("4");
+                            break;
+                case 5: s=s.concat("5");
+                            break;
+                case 6: s=s.concat("6");
+                            break;    
+                case 7: s=s.concat("7");
+                            break;
+                case 8: s=s.concat("8");
+                            break;
+                case 9: s=s.concat("9");
+                            break;
+                    default : s=s.concat("0");
+                }    
+                a=a%b;
                 
-//             } 
-//     }   
-//     System.out.println(s);
+            } 
+    }   
+    System.out.println(s);
    
-//    if (n == Integer.parseInt(s)) {
-//     System.out.println("Good job");
-//    } else {
-//     System.out.println("Wrong answer.");
-//    }
+   if (n == Integer.parseInt(s)) {
+    System.out.println("Good job");
+   } else {
+    System.out.println("Wrong answer."); /
+   }
+   ///built-in function
+   
+   String s = Integer.toString(-98);
+   System.out.println(s);
+
  /********************************************************************************************************************************** */
  
-
-
 
 
 
