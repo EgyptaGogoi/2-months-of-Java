@@ -165,13 +165,38 @@ public class hackerrank{
    String s = Integer.toString(-98);
    System.out.println(s);
 
+/********************************************************************************************************************************** */
+    //String tokens using StringTokenizer class
+ /*     Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        StringTokenizer st = new StringTokenizer( s, " !,?._'@]+"); //converts string to a list/array of tokens
+        int count= st.countTokens(); 
+        System.out.println(count);
+        while(st.hasMoreTokens()){
+            System.out.println(st.nextToken());
+        }
+*/
  /********************************************************************************************************************************** */
- 
+    //Regex pattern question for IP address
+    //         Scanner in = new Scanner(System.in);
+    //         while(in.hasNext()){
+    //             String IP = in.next();
+    //             System.out.println(IP.matches(new MyRegex().pattern));
+
+    // //Write your code here
+    // class MyRegex{
+    //             public String pattern= new String("([0-9]?\\.{1}|[0-9][0-9]?\\.{1}|1[0-9][0-9]?
+                /*            \\.{1}|2[0-4][0-9]?\\.{1}|25[0-5]?\\.{1}|000?\\.{1}|0[0-9]?[0-9]?\\.{1})"+"([0-9]?\\.{1}|[0-9][0-9]?\\.{1}|1[0-9][0-9]
+                            ?\\.{1}|2[0-4][0-9]?\\.{1}|25[0-5]?\\.{1}|000?\\.{1}|0[0-9]?[0-9]?\\.{1})"+"([0-9]?\\.{1}|[0-9][0-9]?\\.{1}|1[0-9][0-9]
+                            ?\\.{1}|2[0-4][0-9]?\\.{1}|25[0-5]?\\.{1}|000?\\.{1}|0[0-9]?[0-9]?\\.{1})"+"([0-9]?|[0-9][0-9]?|1[0-9][0-9]?|2[0-4][0-9]?
+                            |25[0-5]?|000?|0[0-9]?[0-9]?)");      */
+    // }
 
 
-
-
-
+    // int c,i;
+    // for( i=0; i<5; i++)
+    //     c=0;
+    // System.out.print(i);
 
 
 
