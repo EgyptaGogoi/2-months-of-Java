@@ -1,3 +1,8 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 public class hackerrank{
 
     // Introduction (10/06/24)
@@ -198,6 +203,46 @@ public class hackerrank{
     //     c=0;
     // System.out.print(i);
 
+    
+        Scanner scan= new Scanner(System.in);
+        int  n= scan.nextInt();
+        int a[] = new int[n];
+        int count=0,i;
+        for( i=0; i<n; i++){
+            a[i]= scan.nextInt();
+            // if(a[i]<0)
+            //     count++;
+        }
+        scan.close();
+        int sum;
+        //sum=a[i];
+        // while(i<n && j<n)
+        // {
+        //     sum=sum+a[j];
+        //     if(sum<0)
+        //     {
+        //         count++;
+        //         j++;
+        //     }   
+        //     if(j==n-1){
+        //         i++; sum=a[i]; j=i+1;
+        //     }             
+        // } 
+        Arrays.sort(a);
+        for(int j=0; j<n; j++){
+            if(a[j]<0){
+                sum=a[j];
+                i=j+1;
+                while(sum<0 && i<n){
+                    count++;
+                    sum+=a[i];
+                    i++;
+                    if(i==j)
+                        i++;
+                }
+            }
+        }
+        System.out.print(count);
 
 
 
