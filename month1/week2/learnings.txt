@@ -36,8 +36,11 @@ interface.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 $Interface
-To solve the problem of multiple Inheritance we have Interfaces in Java
-Check below 2 programs how interface is implemented and how it solves diamond problem.
+1)An interface is a blueprint for classes that defines a set of methods that a class must implement.
+Interfaces cannot be instantiated on their own and must be implemented by a class. Also, classes can implement 
+multiple interfaces.
+2)To solve the problem of multiple Inheritance we have Interfaces in Java
+3)Check below 2 programs how interface is implemented and how it solves diamond problem.
 
 
 // Java program to demonstrate Multiple Inheritance
@@ -188,3 +191,14 @@ Encapsulation is a way of hiding the implementation details of a class from outs
 a public interface that can be used to interact with the class.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$Abstraction
+1)Abstraction is a concept in object-oriented programming (OOP) that refers to the ability to focus on essential features
+of an object and ignoring the non-essential details.
+2)Abstraction in Java is achieved through the use of abstract classes and interfaces.
+3)An abstract class is a class that cannot be instantiated and serves as a blueprint for other classes. Abstract 
+classes can have both abstract methods and concrete methods.
+4)An abstract method is a method declared without an implementation in an abstract class and must be overridden 
+by subclass to provide a body for the method.
+5)We use interfaces to enforce behavior for multiple classes, while abstract classes only allow inheritance within 
+a single hierarchy.
