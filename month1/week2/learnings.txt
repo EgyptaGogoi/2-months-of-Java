@@ -1,0 +1,204 @@
+                                        //.....OOPS......//
+$Constructors:                                        
+Constructors in Java are used to initialize the values of the attributes of the object serving the goal to
+bring Java closer to the real world. We already have a default constructor that is called automatically if
+no constructor is found in the code. But if we make any constructor say parameterized constructor in order 
+to initialize some attributes then it must write down the default constructor because it now will be no more
+automatically called. 
+
+ Types-
+ 1)default
+ 2)parameterized
+ 3)copy
+
+Note:
+The constructor call is from top to bottom. And yes if there was any class that our Parent class is extending
+then the body of that class will be executed thereafter landing up to derived classes. 
+
+But, if we want to call a parameterized constructor of the base class, then we can call it using "super()". The point 
+to note is base class constructor call must be the first line in the derived class constructor. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$Inheritance
+1)same Inheritance concept as C++.
+2) Class can only extend 1 class at a time but can implement multiple interface. But an interface can extend multiple
+interface.
+3)Java cannot implement multiple Inheritance because of diamond problem.
+      GrandParent
+           /     \
+          /       \
+      Parent1      Parent2
+          \       /
+           \     /
+             Test
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$Interface
+1)An interface is a blueprint for classes that defines a set of methods that a class must implement.
+Interfaces cannot be instantiated on their own and must be implemented by a class. Also, classes can implement 
+multiple interfaces.
+2)To solve the problem of multiple Inheritance we have Interfaces in Java
+3)Check below 2 programs how interface is implemented and how it solves diamond problem.
+
+
+// Java program to demonstrate Multiple Inheritance
+// through default methods
+
+// Interface 1
+interface PI1 {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement if method is called
+		// from interface 1
+		System.out.println("Default PI1");
+	}
+}
+
+// Interface 2
+interface PI2 {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement if method is called
+		// from interface 2
+		System.out.println("Default PI2");
+	}
+}
+
+// Main class
+// Implementation class code
+class TestClass implements PI1, PI2 {
+
+	// Overriding default show method
+	@Override
+	public void show()
+	{
+
+		// Using super keyword to call the show
+		// method of PI1 interface
+		PI1.super.show();//Should not be used directly in the main method;
+
+		// Using super keyword to call the show
+		// method of PI2 interface
+		PI2.super.show();//Should not be used directly in the main method;
+	}
+
+	//Method for only executing the show() of PI1
+	public void showOfPI1() {
+		PI1.super.show();//Should not be used directly in the main method;
+	}
+
+	//Method for only executing the show() of PI2
+	public void showOfPI2() {
+		PI2.super.show(); //Should not be used directly in the main method;
+	}
+
+	// Mai driver method
+	public static void main(String args[])
+	{
+
+		// Creating object of this class in main() method
+		TestClass d = new TestClass();
+		d.show();
+		System.out.println("Now Executing showOfPI1() showOfPI2()");
+		d.showOfPI1();
+		d.showOfPI2();
+	}
+}
+
+OUTPUT :
+    Default PI1
+    Default PI2
+    Now Executing showOfPI1() showOfPI2()
+    Default PI1
+    Default PI2
+
+
+// Java program to demonstrate How Diamond Problem
+// Is Handled in case of Default Methods
+
+// Interface 1
+interface GPI {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement
+		System.out.println("Default GPI");
+	}
+}
+
+// Interface 2
+// Extending the above interface
+interface PI1 extends GPI {
+}
+
+// Interface 3
+// Extending the above interface
+interface PI2 extends GPI {
+}
+
+// Main class
+// Implementation class code
+class TestClass implements PI1, PI2 {
+
+	// Main driver method
+	public static void main(String args[])
+	{
+
+		// Creating object of this class
+		// in main() method
+		TestClass d = new TestClass();
+
+		// Now calling the function defined in interface 1
+		// from whom Interface 2and 3 are deriving
+		d.show();
+	}
+}
+OUTPUT:
+    Default GPI
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$Polymorphism
+1) Same as c++ oops concept.
+2)Polymorphism allows us to perform a single action in different ways. 
+In other words, polymorphism allows you to define one interface and have multiple implementations.
+Like a man at the same time is a father, a husband, and an employee. So the same person possesses
+different behaviors in different situations. 
+
+Types of Java Polymorphism
+In Java Polymorphism is mainly divided into two types: 
+
+Compile-time Polymorphism: Method overloading, operator overloading(java doesnt support), templates
+Runtime Polymorphism: virtual function(overrided function)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$Encapsulation
+Encapsulation in Java is a fundamental concept in object-oriented programming (OOP) that refers to the bundling
+of data and methods that operate on that data within a single unit, which is called a class in Java. Java 
+Encapsulation is a way of hiding the implementation details of a class from outside access and only exposing 
+a public interface that can be used to interact with the class.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$Abstraction
+1)Abstraction is a concept in object-oriented programming (OOP) that refers to the ability to focus on essential features
+of an object and ignoring the non-essential details.
+2)Abstraction in Java is achieved through the use of abstract classes and interfaces.
+3)An abstract class is a class that cannot be instantiated and serves as a blueprint for other classes. Abstract 
+classes can have both abstract methods and concrete methods.
+4)An abstract method is a method declared without an implementation in an abstract class and must be overridden 
+by subclass to provide a body for the method.
+5)We use interfaces to enforce behavior for multiple classes, while abstract classes only allow inheritance within 
+a single hierarchy.

@@ -164,3 +164,117 @@ jar - to bundle up .class files in a zip file
 --- JRE ---
 
 JRE = Object of JVM + Development Tools + Librrary classes
+
+/**********************************************************************************************************************************************************************************/
+
+------Input & Output in Java----
+
+    Input- System.in
+        using Scanner class : 
+            Scanner scan = new Scanner(System.in);
+            int a = scan.nextInt(); -integer input
+            string b = scan.next(); -1 string input
+            string c = scan.nextLine(); - line input
+            [Use scan.nextLine() to consume the newline character left in the buffer before this,
+             After using methods like nextInt(), if you want to read the next line .] 
+        using bufferreader :(Pisotke sailobi)
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+    Output formatting-
+       
+        1. String.format()-
+            String formattedString = String.format("a: %d, b: %.2f", a, b);
+
+        2. System.out.printf()- same as above but no need extra initialization
+            System.out.printf("a: %d, b: %.2f%n", a, b);
+
+            [`printf` is short for "print formatted."]
+
+
+     ### Common Format Specifiers ###
+
+        - `%d`: Decimal integer
+        - `%f`: Floating-point number
+        - `%s`: String
+        - `%c`: Character
+        - `%b`: Boolean
+        - `%x`: Hexadecimal integer
+        - `%e`: Scientific notation
+
+    ### Width and Precision ###
+    Right alignment :This will right-align the number within a field of 10 characters
+         double number = 123.456789;
+        System.out.printf("%10.2f%n", number);
+
+        Output - _ _ _ _ _ 123.45
+
+    Left Alignment :To left-align text, use a minus sign (`-`) before the width specifier
+
+        System.out.printf("%-10.2f%n", number);
+
+        Output - 123.45_ _ _ _ _
+
+/------------------------------------------------------------------------------------------------------------------------------------------------------------------/
+
+*if, if-else, else if, nested if, nested if-else, switch case 
+---prior knowlegde, syntax same as cpp, also studied from gfg---
+
+*jump statements (break, continue, return)
+    #break - break the loop, case, scope {}
+    #coninue - continue from the loop, rest of the statement in the loop is not executed
+    #return - exit the method and return the control to the method-caller statement 
+
+    ----studied from gfg----
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  //Zeller's congruence to calculate the day of the week
+  
+    //     a= (int)Math.floor((13*(m+1))/5);
+    //     b= (int) Math.floor(k/4);
+    //     c= (int) Math.floor(j/4);
+    //     h=(day+ a + K + b + c - 2*J)% 7;
+
+where:
+
+h is the day of the week (0 = Saturday, 1 = Sunday, 2 = Monday, ..., 6 = Friday).
+q is the day of the month.
+m is the month (3 = March, 4 = April, ..., 12 = December). January and February are treated as months 13 and 14 of the previous year.
+K is the year of the century (i.e., year mod 100).
+J is the zero-based century (i.e., year / 100).
+
+//Better method
+        to use date.getDayOfWeek() [inbuilt function but u need extra type variables]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+***Number format-          (frf = variable name)
+         final NumberFormat frf= NumberFormat.getCurrencyInstance(Locale.FRANCE);
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    ****Loops-[for repeating statements, same as C/C++]
+        1)For 
+        2)While 
+        3)Do-While
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+*************STRINGS**************
+
+'String' not string.
+-To create string:  using literals "" / using 'new' keyword
+-whenever a String Object is created as a literal, the object will be created 
+in the String constant pool. This allows JVM to optimize the initialization of 
+String literal.
+
+Example: 
+
+String demoString = "hello";
+-The string can also be declared using a new operator i.e. dynamically allocated. 
+In case of String are dynamically allocated they are assigned a new memory location
+ in the heap. This string will not be added to the String constant pool.
+
+Example: 
+
+String demoString = new String("hello");
+-Strings are immutable,i.e., cannot be change. when we concat we get a new object.
+-has a lot of functions like length()/,charAt()/substring()/concat()/toLowerCase()/compareTo()/equals(),etc
+-has stringbuilder,stringbuffer,stringtokenizer class 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
