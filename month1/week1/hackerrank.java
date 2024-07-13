@@ -204,49 +204,104 @@ public class hackerrank{
     // System.out.print(i);
 
     
-        Scanner scan= new Scanner(System.in);
-        int  n= scan.nextInt();
-        int a[] = new int[n];
-        int count=0,i;
-        for( i=0; i<n; i++){
-            a[i]= scan.nextInt();
-            // if(a[i]<0)
-            //     count++;
-        }
-        scan.close();
-        int sum;
-        //sum=a[i];
-        // while(i<n && j<n)
-        // {
-        //     sum=sum+a[j];
-        //     if(sum<0)
-        //     {
-        //         count++;
-        //         j++;
-        //     }   
-        //     if(j==n-1){
-        //         i++; sum=a[i]; j=i+1;
-        //     }             
-        // } 
+        // Scanner scan= new Scanner(System.in);
+        // int  n= scan.nextInt();
+        // int a[] = new int[n];
+        // int count=0,i;
+        // for( i=0; i<n; i++){
+        //     a[i]= scan.nextInt();
+        //     // if(a[i]<0)
+        //     //     count++;
+        // }
+        // scan.close();
+        // int sum;
+        // //sum=a[i];
+        // // while(i<n && j<n)
+        // // {
+        // //     sum=sum+a[j];
+        // //     if(sum<0)
+        // //     {
+        // //         count++;
+        // //         j++;
+        // //     }   
+        // //     if(j==n-1){
+        // //         i++; sum=a[i]; j=i+1;
+        // //     }             
+        // // } 
+        // Arrays.sort(a);
+        // for(int j=0; j<n; j++){
+        //     if(a[j]<0){
+        //         sum=a[j];
+        //         i=j+1;
+        //         while(sum<0 && i<n){
+        //             count++;
+        //             sum+=a[i];
+        //             i++;
+        //             if(i==j)
+        //                 i++;
+        //         }
+        //     }
+        // }
+        // System.out.print(count);
+
+        String s=new String("AAbsQq");
+       char a[]=s.toCharArray();
         Arrays.sort(a);
-        for(int j=0; j<n; j++){
-            if(a[j]<0){
-                sum=a[j];
-                i=j+1;
-                while(sum<0 && i<n){
-                    count++;
-                    sum+=a[i];
-                    i++;
-                    if(i==j)
-                        i++;
+        int k=a.length,count=1,mov=0,i;
+        int n=1;
+        for(i=0;i<k-1;i++)
+        {
+             if(a[i]!=a[i+1])
+                n++;
+        }
+        //System.out.println(n);
+        int fr[]=new int[n];
+        char ch[]=new char[n];
+        mov=0;
+        ch[mov]=a[0];
+        fr[mov]=1;
+        for(i=0;i<k-1;i++){
+            if(a[i]==a[i+1]){
+                fr[mov]=++count;
+                
+            } 
+            else
+            {
+                mov++;
+                ch[mov]=a[i+1];
+                fr[mov]=1; 
+                count=1;
+            }
+                
+        }
+        //System.out.println(Arrays.toString(ch));
+        int j;
+        for(i=0; i<n-1; i++)
+        {
+            for(j=0; j<n-i-1; j++)
+            {
+                if(fr[j]<fr[j+1]){
+                    int t=fr[j+1];
+                    fr[j+1]=fr[j];
+                    fr[j]=t;
+                    char temp=ch[j+1];
+                    ch[j+1]=ch[j];
+                    ch[j]=temp;
                 }
             }
         }
-        System.out.print(count);
+        int c=0;
+        i=0;
+       //  System.out.println(Arrays.toString(fr));
+        // System.out.println(Arrays.toString(ch));
+        while(c<n){
+            for(j=1;j<=fr[c];j++){
+                    a[i]=ch[c];
+                    i++;
+            }
+            c++;
+        }
 
-
-
-
-
+        System.out.print(Arrays.toString(a));
 }
 }
