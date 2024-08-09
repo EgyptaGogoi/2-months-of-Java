@@ -60,11 +60,11 @@ public class index {
 
     // Error ( System.in )
     
-    public static void main(String args[]) 
-    throws IOException 
-    { 
+    // public static void main(String args[]) 
+    // throws IOException 
+    // { 
         
-    } 
+    // } 
 
 
     /*
