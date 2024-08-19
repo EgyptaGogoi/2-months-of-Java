@@ -1,0 +1,100 @@
+
+**Problem: Library Management System**
+
+You are tasked with designing a Library Management System using Object-Oriented Programming (OOP) principles in Python. The system should be capable of handling books, members, and transactions. The requirements are as follows:
+
+### Core Concepts to Cover:
+
+1. **Encapsulation**: Use private fields and provide public methods to access and modify them.
+2. **Inheritance**: Create a hierarchy of classes for different types of books and members.
+3. **Polymorphism**: Use method overriding to handle different behaviors for different book and member types.
+4. **Abstraction**: Use abstract classes and methods where appropriate.
+5. **Composition**: Show how one class can be composed of multiple other classes.
+6. **Association**: Demonstrate relationships between classes.
+7. **Aggregation**: Represent "has-a" relationships between classes.
+
+### Extra Topics to Include:
+
+1. **Interfaces**: Define and implement interfaces for common behaviors.
+2. **File Handling**: Save and load data to and from files.
+3. **Exception Handling**: Handle possible exceptions that might occur during file operations or invalid data inputs.
+4. **Collections**: Use collections such as lists or dictionaries to manage groups of objects.
+5. **Static Methods and Variables**: Use static methods and variables to keep track of the total number of books and members.
+6. **Design Patterns**: Implement at least one design pattern (e.g., Singleton, Factory, Observer).
+
+### Detailed Requirements:
+
+1. **Book Class**:
+   - Attributes: `title`, `author`, `ISBN`, `available_copies`.
+   - Methods: `borrow()`, `return_book()`, and appropriate getters and setters.
+   - **Inheritance**: Create subclasses `EBook` and `PrintedBook` with additional attributes specific to each type.
+
+2. **Member Class**:
+   - Attributes: `name`, `member_id`, `borrowed_books`.
+   - Methods: `borrow_book(book: Book)`, `return_book(book: Book)`, and appropriate getters and setters.
+   - **Inheritance**: Create subclasses `StudentMember` and `TeacherMember` with specific borrowing limits.
+
+3. **Library Class**:
+   - Attributes: `books`, `members`.
+   - Methods: `add_book(book: Book)`, `remove_book(ISBN: str)`, `register_member(member: Member)`, `remove_member(member_id: str)`.
+   - **Composition**: The `Library` class should contain lists of `Book` and `Member` objects.
+   - **Association**: Show relationships between `Library`, `Book`, and `Member`.
+
+4. **Transaction Class**:
+   - Attributes: `transaction_id`, `book`, `member`, `date`, `type` (borrow/return).
+   - Methods: Save transactions to a file and load transactions from a file.
+   - **Aggregation**: Use a collection to manage multiple `Transaction` objects.
+
+5. **File Handling**:
+   - Save and load the list of books and members to/from files.
+   - Save and load transaction history to/from a file.
+
+6. **Exception Handling**:
+   - Handle exceptions for file operations (e.g., file not found, read/write errors).
+   - Handle invalid operations (e.g., borrowing a book that's not available, returning a book that wasn't borrowed).
+
+7. **Design Pattern**:
+   - Implement the Singleton pattern for the `Library` class to ensure there is only one instance managing the books and members.
+
+### Example Usage:
+
+1. Create a library instance.
+2. Add books and members to the library.
+3. Borrow and return books.
+4. Save the current state of the library to files.
+5. Load the library state from files.
+6. Print the list of books and members along with their details.
+
+### Expected Output:
+
+- Display details of all books and members.
+- Show the transaction history.
+- Handle any exceptions gracefully.
+
+### Sample Code Structure:
+
+```python
+from abc import ABC, abstractmethod
+import json
+
+class Book(ABC):
+    def __init__(self, title, author, ISBN, available_copies):
+        self.__title = title
+        self.__author = author
+        self.__ISBN = ISBN
+        self.__available_copies = available_copies
+
+    @abstractmethod
+    def borrow(self):
+        pass
+
+    @abstractmethod
+    def return_book(self):
+        pass
+
+# Other classes go here
+
+if __name__ == "__main__":
+    # Instantiate library and perform operations
+    pass
+```

@@ -1,0 +1,301 @@
+Sure, here is a problem statement for a Library Management System using Object-Oriented Programming principles in Java:
+
+---
+
+**Problem: Library Management System**
+
+You are tasked with designing a Library Management System using Object-Oriented Programming (OOP) principles in Java. The system should be capable of handling books, members, and transactions. The following requirements should be met:
+
+### Core Concepts to Apply:
+1. **Encapsulation**: Use private fields and provide public methods to access and modify them.
+2. **Inheritance**: Create a hierarchy of classes for different types of library items.
+3. **Polymorphism**: Use method overriding to handle different behaviors for different types of library items.
+4. **Abstraction**: Use abstract classes and methods where appropriate.
+5. **Composition**: Show how one class can be composed of multiple other classes.
+6. **Interfaces**: Define and implement interfaces for common behaviors.
+7. **Generics**: Use generics where appropriate.
+8. **Exception Handling**: Handle possible exceptions that might occur.
+
+### Framework Requirements:
+
+1. **LibraryItem Abstract Class**:
+   - Define an abstract class named `LibraryItem` with the following fields and methods:
+     ```java
+     public abstract class LibraryItem {
+         private String title;
+         private String author;
+         private String id;
+         private boolean isBorrowed;
+
+         public LibraryItem(String title, String author, String id) {
+             this.title = title;
+             this.author = author;
+             this.id = id;
+             this.isBorrowed = false;
+         }
+
+         public String getTitle() {
+             return title;
+         }
+
+         public String getAuthor() {
+             return author;
+         }
+
+         public String getId() {
+             return id;
+         }
+
+         public boolean isBorrowed() {
+             return isBorrowed;
+         }
+
+         public void setBorrowed(boolean borrowed) {
+             isBorrowed = borrowed;
+         }
+
+         public abstract void displayInfo();
+     }
+     ```
+
+2. **Book and Magazine Classes**:
+   - Create two classes `Book` and `Magazine` that inherit from `LibraryItem`.
+   - Each class should override the `displayInfo()` method to display relevant information.
+
+3. **Member Class**:
+   - Create a class named `Member` with the following fields and methods:
+     ```java
+     public class Member {
+         private String name;
+         private String memberId;
+         private List<LibraryItem> borrowedItems;
+
+         public Member(String name, String memberId) {
+             this.name = name;
+             this.memberId = memberId;
+             this.borrowedItems = new ArrayList<>();
+         }
+
+         public String getName() {
+             return name;
+         }
+
+         public String getMemberId() {
+             return memberId;
+         }
+
+         public List<LibraryItem> getBorrowedItems() {
+             return borrowedItems;
+         }
+
+         public void borrowItem(LibraryItem item) {
+             borrowedItems.add(item);
+             item.setBorrowed(true);
+         }
+
+         public void returnItem(LibraryItem item) {
+             borrowedItems.remove(item);
+             item.setBorrowed(false);
+         }
+
+         public void displayBorrowedItems() {
+             for (LibraryItem item : borrowedItems) {
+                 item.displayInfo();
+             }
+         }
+     }
+     ```
+
+4. **Library Class**:
+   - Create a class named `Library` that manages `LibraryItem` and `Member` instances.
+   - The `Library` class should have methods to add items, register members, lend items, and return items.
+
+5. **Transaction Class**:
+   - Create a class named `Transaction` to represent borrowing and returning transactions.
+   - The `Transaction` class should store information about the member, the item, the type of transaction (borrow/return), and the date of the transaction.
+
+### Detailed Requirements:
+
+1. **LibraryItem Class**:
+   - Fields: `String title`, `String author`, `String id`, `boolean isBorrowed`.
+   - Methods:
+     - `getTitle()`, `getAuthor()`, `getId()`, `isBorrowed()`, `setBorrowed(boolean borrowed)`.
+     - `displayInfo()`: Abstract method to display item information.
+
+2. **Book Class**:
+   - Fields: `String title`, `String author`, `String id`, `boolean isBorrowed`.
+   - Methods:
+     - `displayInfo()`: Display book information (title, author, id).
+
+3. **Magazine Class**:
+   - Fields: `String title`, `String author`, `String id`, `boolean isBorrowed`.
+   - Methods:
+     - `displayInfo()`: Display magazine information (title, author, id).
+
+4. **Member Class**:
+   - Fields: `String name`, `String memberId`, `List<LibraryItem> borrowedItems`.
+   - Methods:
+     - `getName()`, `getMemberId()`, `getBorrowedItems()`, `borrowItem(LibraryItem item)`, `returnItem(LibraryItem item)`, `displayBorrowedItems()`.
+
+5. **Library Class**:
+   - Fields: `List<LibraryItem> items`, `List<Member> members`, `List<Transaction> transactions`.
+   - Methods:
+     - `addItem(LibraryItem item)`: Add an item to the library.
+     - `registerMember(Member member)`: Register a new member.
+     - `lendItem(String itemId, String memberId)`: Lend an item to a member.
+     - `returnItem(String itemId, String memberId)`: Return an item from a member.
+     - `displayAllItems()`: Display all items in the library.
+     - `displayAllMembers()`: Display all members of the library.
+     - `displayTransactions()`: Display all transactions.
+
+6. **Transaction Class**:
+   - Fields: `Member member`, `LibraryItem item`, `String transactionType`, `Date date`.
+   - Methods: Constructor, getters for fields.
+
+### Example Usage:
+
+1. Create instances of `Book` and `Magazine`.
+2. Create instances of `Member`.
+3. Add items to the `Library`.
+4. Register members in the `Library`.
+5. Lend and return items using the `Library` class.
+6. Display information about items, members, and transactions.
+
+### Sample Code Structure:
+
+```java
+import java.util.*;
+
+public abstract class LibraryItem {
+    private String title;
+    private String author;
+    private String id;
+    private boolean isBorrowed;
+
+    public LibraryItem(String title, String author, String id) {
+        this.title = title;
+        this.author = author;
+        this.id = id;
+        this.isBorrowed = false;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public boolean isBorrowed() {
+        return isBorrowed;
+    }
+
+    public void setBorrowed(boolean borrowed) {
+        isBorrowed = borrowed;
+    }
+
+    public abstract void displayInfo();
+}
+
+public class Book extends LibraryItem {
+    public Book(String title, String author, String id) {
+        super(title, author, id);
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Book - Title: " + getTitle() + ", Author: " + getAuthor() + ", ID: " + getId());
+    }
+}
+
+public class Magazine extends LibraryItem {
+    public Magazine(String title, String author, String id) {
+        super(title, author, id);
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Magazine - Title: " + getTitle() + ", Author: " + getAuthor() + ", ID: " + getId());
+    }
+}
+
+public class Member {
+    private String name;
+    private String memberId;
+    private List<LibraryItem> borrowedItems;
+
+    public Member(String name, String memberId) {
+        this.name = name;
+        this.memberId = memberId;
+        this.borrowedItems = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public List<LibraryItem> getBorrowedItems() {
+        return borrowedItems;
+    }
+
+    public void borrowItem(LibraryItem item) {
+        borrowedItems.add(item);
+        item.setBorrowed(true);
+    }
+
+    public void returnItem(LibraryItem item) {
+        borrowedItems.remove(item);
+        item.setBorrowed(false);
+    }
+
+    public void displayBorrowedItems() {
+        for (LibraryItem item : borrowedItems) {
+            item.displayInfo();
+        }
+    }
+}
+
+public class Library {
+    private List<LibraryItem> items;
+    private List<Member> members;
+    private List<Transaction> transactions;
+
+    public Library() {
+        items = new ArrayList<>();
+        members = new ArrayList<>();
+        transactions = new ArrayList<>();
+    }
+
+    public void addItem(LibraryItem item) {
+        items.add(item);
+    }
+
+    public void registerMember(Member member) {
+        members.add(member);
+    }
+
+    public void lendItem(String itemId, String memberId) {
+        LibraryItem item = findItem(itemId);
+        Member member = findMember(memberId);
+        if (item != null && member != null && !item.isBorrowed()) {
+            member.borrowItem(item);
+            transactions.add(new Transaction(member, item, "Borrow", new Date()));
+        } else {
+            System.out.println("Item or Member not found, or Item is already borrowed.");
+        }
+    }
+
+    public void returnItem(String itemId, String memberId) {
+        LibraryItem item = findItem(itemId);
+        Member member = findMember(memberId);
+        if (item != null && member != null && item.isBorrowed()) {
+            member.return

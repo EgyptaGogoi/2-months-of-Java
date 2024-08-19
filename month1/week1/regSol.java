@@ -18,4 +18,5 @@ class regSol{
 class MyRegex{
               //public String pattern= new String("[[0-2]?[0-5]?[0-5]?]{1,4}.{1}[[0-2]?[0-5]?[0-5]?]{1,4}.{1}[[0-2]?[0-5]?[0-5]?]{1,4}.{1}[[0-2]?[0-5]?[0-5]?]{1,4}");
               public String pattern= new String("[[0-2]{0,1}[0-5[0-5]]{1,3}.{1}");
+              public String pattern= new String("[[0-2]{0,1}[0-5[0-5]]{1,3}.{1}");
 }

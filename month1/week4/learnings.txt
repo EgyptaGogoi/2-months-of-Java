@@ -1,0 +1,48 @@
+TwosPower
+ - Method I (by continuous deviding by 2) O(log n base 2)
+    n/2 -> n2/2 -> n3/2 -> ... -> 2/2
+    we devide the number by 2 until we get 2 or until it is odd.
+
+    if n == 0
+        FALSE
+
+    x = n devide by 2
+    repeat while x != odd || x != 2
+        x = x devide by 2
+    if x = odd
+        FALSE
+    else
+        TRUE
+ - Method II (by log function) O(log n base 2)
+    we can calculate the log of log n base 2
+    x = log n base 2 (in java it is done as : Math.log(n)/Math.log(2))
+    check n = Math.pow(2,(int)x)
+
+
+ - Method III (bit manipulation) O(1)
+    return (n > 0) && ((n &(n-1)) == 0);
+    binary of twos power are:
+        1 - 0001
+        2 - 0010
+        4 - 0100
+        8 - 1000
+    when we perform bitwise AND operation with numbers that are power of 2 and that number - 1 then we get 0
+    thus if we don't get zero then it is not power of 2
+    example
+    n = 4 
+    n-1 = 3
+    4 & 3 =     100
+               &011
+               ----
+               =000 = 0
+    thus 4 is a power of 2
+
+    but then 
+    n = 5
+    n-1 = 4
+    5 & 4 =     101
+               &100
+               ----
+               =100 != 0
+    thus 5 is not a power of 2
+////////////////////////////////////////////////////////////////////////////////////////////////
